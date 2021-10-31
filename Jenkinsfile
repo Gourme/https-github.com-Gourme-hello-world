@@ -22,11 +22,7 @@ pipeline {
                 sh 'mvn checkstyle:checkstyle'
             }
         }
-        stage('deploy') {
-            steps {
-                deploy adapters: [tomcat8(credentialsId: 'Tomcat_ID', path: '', url: 'http://15.207.88.114:8080')], contextPath: 'webapp1', onFailure: false, war: '**/*.war'
-            }
-        }  
+  
         
     }
 }
